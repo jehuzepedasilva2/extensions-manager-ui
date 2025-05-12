@@ -1,0 +1,234 @@
+:root {
+  --body-bg-clr: hsl(226, 25%, 17%);
+
+  --containers-bg-clr: hsl(225, 23%, 24%);
+  --other-bg-clr: hsl(226, 11%, 37%);
+
+  --top-bar-clr: white;
+  --primary-color: white;
+  --secondary-clr: rgb(154, 150, 150);
+
+  --border-clr: rgb(154, 150, 150);
+
+  --active-clr: hsl(3, 86%, 64%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Noto Sans;
+
+  /* for changing between light and dark themes */
+  transition: background-color 0.5s ease;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+body {
+  background-color: var(--body-bg-clr);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.5rem;
+
+  padding: 1rem 8rem;
+}
+
+.top-bar {
+  background-color: var(--containers-bg-clr);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+
+#top-bar-logo-text {
+  fill: var(--top-bar-clr);
+}
+
+.top-bar-theme {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+  background-color: var(--other-bg-clr);
+
+  cursor: pointer;
+}
+
+.top-bar-theme:hover {
+  background-color: var(--active-clr);
+  border-color: var(--active-clr);
+}
+
+.theme-logo {
+  stroke: var(--top-bar-clr);
+}
+
+.page-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.page-body-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-body-top-left {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.page-body-top-right {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.page-body-top-btn {
+  appearance: none;
+  border: 0.5px solid var(--border-clr);
+  color: var(--primary-color);
+  border-radius: 2rem;
+  padding: 0.2rem 0.7rem;
+  background-color: var(--containers-bg-clr);
+
+  cursor: pointer;
+}
+
+.page-body-top-btn:hover {
+  background-color: var(--active-clr);
+  border-color: var(--active-clr);
+}
+
+.page-body-top-btn.active {
+  background-color: var(--active-clr);
+  border: none;
+  color: var(--body-bg-clr);
+}
+
+.page-body-extensions {
+  height: 73vh;
+  display: grid;
+  overflow-y: scroll;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+
+  row-gap: 0.5rem;
+  column-gap: 0.5rem;
+}
+
+.ext-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.8rem;
+
+  background-color: var(--containers-bg-clr);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.ext-top-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.ext-top-right-name {
+  font-weight: bold;
+}
+
+.ext-top-left-desc {
+  font-size: 0.8rem;
+  color: var(--secondary-clr);
+}
+
+.ext-top {
+  color: var(--primary-color);
+  display: flex;
+  gap: 0.8rem;
+}
+
+.ext-bot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ext-bot button {
+  appearance: none;
+  border: 0.5px solid var(--border-clr);
+  color: var(--primary-color);
+  border-radius: 2rem;
+  padding: 0.2rem 0.5rem;
+  background-color: var(--body-bg-clr);
+
+  cursor: pointer;
+}
+
+.ext-bot button:hover {
+  background-color: var(--active-clr);
+  border-color: var(--active-clr);
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:focus {
+  outline: 0;
+}
+
+.toggle {
+  height: 20px;
+  width: 40px;
+  border-radius: 16px;
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  border: 2px solid #474755;
+  background: var(--body-bg-clr);
+  transition: all 0.2s ease;
+}
+
+.toggle:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  box-shadow: 0 1px 2px rgba(44, 44, 44, 0.2);
+  transition: all 0.2s cubic-bezier(0.5, 0.1, 0.75, 1.35);
+}
+.toggle:checked {
+  border-color: var(--active-clr);
+}
+
+.toggle:checked:after {
+  transform: translateX(20px);
+}
